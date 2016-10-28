@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>乖寶寶/吸血鬼時鐘</title>
+<script>
+var sunriseData = new Array(12)
+//year 2010 data
+//sunriseData[9] = new Array("05:35", "05:35", "05:35", "05:36", "05:36", "05:36", "05:37", "05:37", "05:38", "05:38", "05:38", "05:39", "05:39", "05:39", "05:40", "05:40", "05:41", "05:41", "05:41", "05:42", "05:42", "05:42", "05:43", "05:43", "05:44", "05:44", "05:44", "05:45", "05:45", "05:45");
+//sunriseData[10] = new Array("05:46", "05:46", "05:47", "05:47", "05:47", "05:48", "05:48", "05:49", "05:49", "05:50", "05:50", "05:51", "05:51", "05:51", "05:52", "05:52", "05:53", "05:53", "05:54", "05:54", "05:55", "05:55", "05:56", "05:57", "05:57", "05:58", "05:58", "05:59", "05:59", "06:00", "06:01");
+//sunriseData[11] = new Array("06:01", "06:02", "06:02", "06:03", "06:04", "06:04", "06:05", "06:06", "06:06", "06:07", "06:08", "06:08", "06:09", "06:10", "06:10", "06:11", "06:12", "06:12", "06:13", "06:14", "06:14", "06:15", "06:16", "06:17", "06:17", "06:18", "06:19", "06:20", "06:20", "06:21");
+sunriseData[12] = new Array("06:22", "06:22", "06:23", "06:24", "06:24", "06:25", "06:26", "06:27", "06:27", "06:28", "06:29", "06:29", "06:30", "06:30", "06:31", "06:32", "06:32", "06:33", "06:33", "06:34", "06:34", "06:35", "06:35", "06:36", "06:36", "06:37", "06:37", "06:38", "06:38", "06:38", "06:39");
+//year 2011 data
+sunriseData[1] = new Array("06:39", "06:39", "06:39", "06:40", "06:40", "06:40", "06:40", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:41", "06:40", "06:40", "06:40", "06:40", "06:40", "06:39", "06:39", "06:39", "06:38", "06:38", "06:38", "06:37");
+sunriseData[2] = new Array("06:37", "06:37", "06:36", "06:36", "06:35", "06:35", "06:34", "06:33", "06:33", "06:32", "06:32", "06:31", "06:30", "06:30", "06:29", "06:28", "06:27", "06:27", "06:26", "06:25", "06:24", "06:24", "06:23", "06:22", "06:21", "06:20", "06:19", "06:18");
+sunriseData[3] = new Array("06:17", "06:17", "06:16", "06:15", "06:14", "06:13", "06:12", "06:11", "06:10", "06:09", "06:08", "06:07", "06:06", "06:05", "06:04", "06:03", "06:02", "06:01", "06:00", "05:59", "05:58", "05:57", "05:56", "05:55", "05:54", "05:53", "05:52", "05:51", "05:50", "05:48", "05:47");
+sunriseData[4] = new Array("05:46", "05:45", "05:44", "05:43", "05:42", "05:41", "05:40", "05:39", "05:38", "05:37", "05:36", "05:35", "05:34", "05:33", "05:33", "05:32", "05:31", "05:30", "05:29", "05:28", "05:27", "05:26", "05:25", "05:24", "05:24", "05:23", "05:22", "05:21", "05:20", "05:20");
+sunriseData[5] = new Array("05:19", "05:18", "05:17", "05:17", "05:16", "05:15", "05:15", "05:14", "05:13", "05:13", "05:12", "05:12", "05:11", "05:11", "05:10", "05:10", "05:09", "05:09", "05:08", "05:08", "05:07", "05:07", "05:07", "05:06", "05:06", "05:06", "05:05", "05:05", "05:05", "05:05", "05:04");
+sunriseData[6] = new Array("05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:04", "05:05", "05:05", "05:05", "05:05", "05:05", "05:06", "05:06", "05:06", "05:07", "05:07", "05:07");
+sunriseData[7] = new Array("05:08", "05:08", "05:08", "05:09", "05:09", "05:09", "05:10", "05:10", "05:11", "05:11", "05:11", "05:12", "05:12", "05:13", "05:13", "05:14", "05:14", "05:15", "05:15", "05:15", "05:16", "05:16", "05:17", "05:17", "05:18", "05:18", "05:19", "05:19", "05:20", "05:20", "05:21");
+sunriseData[8] = new Array("05:21", "05:22", "05:22", "05:23", "05:23", "05:24", "05:24", "05:24", "05:25", "05:25", "05:26", "05:26", "05:27", "05:27", "05:28", "05:28", "05:28", "05:29", "05:29", "05:30", "05:30", "05:31", "05:31", "05:31", "05:32", "05:32", "05:33", "05:33", "05:33", "05:34", "05:34");
+sunriseData[9] = new Array("05:35", "05:35", "05:35", "05:36", "05:36", "05:36", "05:37", "05:37", "05:38", "05:38", "05:38", "05:39", "05:39", "05:39", "05:40", "05:40", "05:40", "05:41", "05:41", "05:42", "05:42", "05:42", "05:43", "05:43", "05:43", "05:44", "05:44", "05:45", "05:45", "05:45");
+sunriseData[10] = new Array("05:46", "05:46", "05:47", "05:47", "05:47", "05:48", "05:48", "05:49", "05:49", "05:50", "05:50", "05:50", "05:51", "05:51", "05:52", "05:52", "05:53", "05:53", "05:54", "05:54", "05:55", "05:55", "05:56", "05:56", "05:57", "05:57", "05:58", "05:59", "05:59", "06:00", "06:00");
+sunriseData[11] = new Array("06:01", "06:02", "06:02", "06:03", "06:03", "06:04", "06:05", "06:05", "06:06", "06:07", "06:07", "06:08", "06:09", "06:09", "06:10", "06:11", "06:11", "06:12", "06:13", "06:14", "06:14", "06:15", "06:16", "06:16", "06:17", "06:18", "06:19", "06:19", "06:20", "06:21");
+//sunriseData[12] = new Array("06:21", "06:22", "06:23", "06:24", "06:24", "06:25", "06:26", "06:26", "06:27", "06:28", "06:28", "06:29", "06:30", "06:30", "06:31", "06:31", "06:32", "06:33", "06:33", "06:34", "06:34", "06:35", "06:35", "06:36", "06:36", "06:37", "06:37", "06:37", "06:38", "06:38", "06:39");
+var weekName = new Array("日", "一", "二", "三", "四", "五", "六");
+function tick() {
+	setTimeout("tick();", 1000);
+
+	var now = new Date();
+	mon = parseInt(now.getMonth()+1);
+	day = parseInt(now.getDate());
+	sunriseString = sunriseData[mon][day-1];
+	sunh = parseInt(sunriseString.match("^[0-9]*"));
+	sunm = parseInt(sunriseString.match("[0-9]*$"));
+	var sunrise = new Date();
+	sunrise.setHours(sunh);
+	sunrise.setMinutes(sunm);
+	sunrise.setSeconds(0);
+	sunrise.setMilliseconds(0);
+	if (now.valueOf()>sunrise.valueOf()) {
+		tomorrow = new Date(now.valueOf()+86400000);
+		mon = parseInt(tomorrow.getMonth()+1);
+		day = parseInt(tomorrow.getDate());
+		sunriseString = sunriseData[mon][day-1];
+		sunh2 = parseInt(sunriseString.match("^[0-9]*"));
+		sunm2 = parseInt(sunriseString.match("[0-9]*$"));
+		sunrise = new Date(sunrise.valueOf() + 86400000 + (sunh2-sunh)*3600000 + (sunm2-sunm)*60);
+	}
+	var sleepTime = new Date();
+	if (sleepTime.getHours()>=12) {
+		sleepTime.setHours(0);
+		sleepTime.setMinutes(0);
+		sleepTime.setSeconds(0);
+		sleepTime.setMilliseconds(0);
+		sleepTime.setTime(sleepTime.getTime()+86400000);
+	}
+	else {
+		sleepTime.setHours(0);
+		sleepTime.setMinutes(0);
+		sleepTime.setSeconds(0);
+		sleepTime.setMilliseconds(0);
+	}
+	sunriseDelta = sunrise.getTime()-now.getTime();
+	h = Math.floor(sunriseDelta/1000/3600);
+	document.getElementById("sun-hour").innerHTML = (h<10?"0"+h:h);
+	m = Math.floor(sunriseDelta%(3600000)/1000/60);
+	document.getElementById("sun-min").innerHTML = (m<10?"0"+m:m);
+	s = Math.floor(sunriseDelta%(60000)/1000);
+	document.getElementById("sun-sec").innerHTML = (s<10?"0"+s:s);
+
+	sleepDelta = sleepTime.getTime()-now.getTime();
+	if (sleepDelta>0) {
+		document.getElementById("sleep-sign").innerHTML = "還有";
+	}
+	else {
+		document.getElementById("sleep-sign").innerHTML = "已過";
+		sleepDelta = -sleepDelta
+	}	
+	h = Math.floor(sleepDelta/1000/3600);
+	document.getElementById("sleep-hour").innerHTML = (h<10?"0"+h:h);
+	m = Math.floor(sleepDelta%(3600000)/1000/60);
+	document.getElementById("sleep-min").innerHTML = (m<10?"0"+m:m);
+	s = Math.floor(sleepDelta%(60000)/1000);
+	document.getElementById("sleep-sec").innerHTML = (s<10?"0"+s:s);
+
+	document.getElementById("now-mon").innerHTML = now.getMonth()+1;
+	document.getElementById("now-date").innerHTML = now.getDate();
+	document.getElementById("now-day").innerHTML = weekName[now.getDay()];
+}
+</script>
+<style type="text/css">
+<!--
+.clock-number {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 72px;
+	color: #000000;
+	background-color: #FFFF99;
+	width: 5em;
+	text-align: center;
+	border-top-style: double;
+	border-right-style: double;
+	border-bottom-style: double;
+	border-left-style: double;
+	border-top-color: #FF9900;
+	border-right-color: #FF9900;
+	border-bottom-color: #FF9900;
+	border-left-color: #FF9900;
+	display: inline;
+}
+.clock-num-sec {
+	font-size: 36px;
+}
+.date-num {
+	font-size: 36px;
+}
+body {
+	font-size: 24px;
+}
+#sunriseClock {
+	border-left-style: dotted;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" height="400" border="0" cellspacing="0" cellpadding="0" style="text-align: center">
+  <tr>
+    <td><div id="sleepClock">
+      <h2>乖寶寶時鐘</h2>
+      <p><img src="time_files/sleep.jpg" alt="sleep" width="194" height="144" />
+	  <br />
+	  <br />
+        距離睡覺<span id="sleep-sign">還有</span>
+      <span class="clock-number"><span id="sleep-hour">??</span>:<span id="sleep-min">??</span><span class="clock-num-sec">:<span id="sleep-sec">??</span></span></span>
+      </p>
+    </div></td>
+    <td><div id="sunriseClock">
+      <h2>吸血鬼時鐘</h2>
+      <p><img src="time_files/sunrise.jpg" alt="sunrise" width="166" height="146" />
+	  <br />
+	  <br />
+        距離日出<span id="sun-sign">還有</span>
+      <span class="clock-number"><span id="sun-hour">??</span>:<span id="sun-min">??</span><span class="clock-num-sec">:<span id="sun-sec">??</span></span></span>
+      </p>
+    </div></td>
+  </tr>
+</table>
+<p align="center">太陽曆  <span class="date-num"><span id="now-mon">?</span>月 <span id="now-date">?</span>日</span> (週期<span id="now-day">?</span>)</p>
+<script type="text/javascript">
+document.write(unescape('%3Cscript type="text/javascript" src="'+
+document.location.protocol+'//counter.goingup.com/js/tracker.js?st=bpjq3bf&amp;b=5"%3E%3C/script%3E'));
+</script>
+<noscript><a href="http://www.goingup.com" title="web analytics"><img src="http://counter.goingup.com/default.php?st=bpjq3bf&amp;b=5" border="0" alt="web analytics" /></a></noscript>
+<script>
+tick();
+</script>
+</body>
+</html>
