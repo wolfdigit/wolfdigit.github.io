@@ -4,6 +4,7 @@
 </head>
 <body>
 <div id="msg"></div>
+<label for="volume">Volume</label><input type="range" id="volume" name="volume" min="0" max="1" step="0.05"><span id="volumeMsg"></span>
 <div id="msg2"></div>
 <div id="vid2"></div>
 <script>
@@ -19,7 +20,7 @@ function readableTime(msec) {
 
 function tick() {
 	if (cnt<=0) {
-		setTimeout(function(){ audio["bell"].play(); }, 0);
+		setTimeout(function(){ bellAudio.play(); }, 0);
 		cnt = 5*60*1000;
 	}
 	$("#msg").html(readableTime(cnt));
@@ -36,9 +37,15 @@ function tick2() {
 	cnt2-=1000;
 }
 
-	var audio = {};
-	audio["bell"] = new Audio();
-	audio["bell"].src = bellUrl;
+function changeVolume(v) {
+	bellAudio.volume = $("#volume")[0].value;
+	$("#volumeMsg").text($("#volume")[0].value);
+}
+
+	var bellAudio = new Audio(bellUrl);
+	
+	$("#volume").change(function (e) { changeVolume(e.target.value); });
+	changeVolume($("#volume")[0].value);
 
 	setInterval(tick, 1000);
 	setInterval(tick2, 1000);
